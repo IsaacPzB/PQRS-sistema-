@@ -29,6 +29,15 @@ function cerrar02() {
     document.getElementById("popSesionUser").style.display = "none";
 }
 
+function cerrarSesion() {
+    let validacion = confirm("¿Seguro de querer cerrar sesión?");
+    if (validacion == true) {
+        document.getElementById("body").innerHTML = "";
+        window.location = "../index.html";
+        
+    }
+}
+
 /**  funcion para registrar usuarios*/
 function registrar() {
 
@@ -57,7 +66,7 @@ function registrar() {
 
 /** Funcion Para iniciar sesion(Admin y asesor) */
 function iniciarAdminAsesor() {
-    
+
     let rol, usuario, contraseña;
     rol = document.getElementById("rol").value;
     usuario = document.getElementById("exampleInputUser").value;
@@ -65,10 +74,22 @@ function iniciarAdminAsesor() {
 
     if (rol == "Seleccionar el rol" || usuario == "" || contraseña == "") {
         alert("Error!, verificar los campos");
+        document.getElementById("iniciosesionAdminAsesor").reset();
 
-    }else if(usuario=="Admin" && contraseña=="admin"){
+    } else if (usuario == "Admin" && contraseña == "admin") {
         window.open("html/pageAdmi.html");
         document.getElementById("iniciosesionAdminAsesor").reset();
     }
 }
 
+
+/** Admin modul */
+/** insertar usuario */
+function insertUser() {
+    document.getElementById("insertUserAdmin").style.display= "block";
+}
+/** Cancelar insertar usuario */
+function adminCancelar() {
+    document.getElementById("insertUserAdmin").style.display= "none";
+    document.getElementById("AdminRegistrarUsuario").reset();
+}
